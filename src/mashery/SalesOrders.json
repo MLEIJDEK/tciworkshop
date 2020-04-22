@@ -4,6 +4,18 @@
     "title": "SalesOrderAPI",
     "version": "1.0.0"
   },
+  "securityDefinitions": {
+    "ApiKeyAuth": {
+      "type": "apiKey",
+      "in": "query",
+      "name": "api_key"
+    }
+  },
+  "security": [
+    {
+      "ApiKeyAuth": []
+    }
+  ],
   "paths": {
     "/sync/{orderId}": {
       "post": {
@@ -15,12 +27,6 @@
             "name": "orderId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "api_key",
-            "type": "string",
-            "required": true
           }
         ],
         "responses": {
